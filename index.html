@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>John Wick</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="background-overlay">
+    <nav>
+        <ul>
+            <li onclick="smoothScroll('#aboutMe', 1000)"><a href="#aboutMe" class="scroll">About Me</a></li>
+            <li><a href="#travel" class="scroll">Travel</a></li>
+            <li><a href="#business" class="scroll">Business</a></li>
+            <li><a href="#skills" class="scroll">Skills</a></li>
+            <li><a href="#references" class="scroll">References</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>JOHN WICK</h1>
+        <figure>
+            BABA YAGA
+        </figure>
+    </header>
+    <section id="aboutMe">
+        <h2>About Me</h2>
+        <div>
+            <img id="halfWick" src="../images/halfWick.png" alt="John Wick">
+
+        </div>
+    </section>
+    <section>
+        <h2>Travel</h2>
+        <div>
+            <img src="../images/paris.png" alt="Paris">
+            <img src="../images/rome.png" alt="Rome">
+            <img src="../images/venice.png" alt="Venice">
+            <img src="../images/berlin.png" alt="Berlin">
+            <img src="../images/london.png" alt="London">
+            <img src="../images/istanbul.png" alt="Istanbul">
+            <img src="../images/athens.png" alt="Athens">
+            <img src="../images/cairo.png" alt="Cairo">
+            <img src="../images/capeTown.png" alt="Cape Town">
+            <img src="../images/sydney.png" alt="Sydney">
+            <img src="../images/tokyo.png" alt="Tokyo">
+            <img src="../images/rio.png" alt="Rio">
+        </div>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+
+    </section>
+    <section>
+        <h2>Martial Arts</h2>
+        <div>
+            <div>
+                <img src="../images/jitsu.png" alt="Boxing">
+                <h3>Brazilian JiuJitsu</h3>
+            </div>
+            <div>
+                <img src="../images/kungFu.png" alt="Boxing">
+                <h3>KungFu</h3>
+            </div>
+            <div>
+                <img src="../images/clothFu.png" alt="clothFu">
+                <h3>ClothFu</h3>
+            </div>
+            <div>
+                <img src="../images/2finger.png" alt="Boxing">
+                <h3>Two Finger Touch</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <p id="end-spacer">
+        Spacer
+    </p>
+</div>
+<script>
+    function smoothScroll(target, duration) {
+        var target = document.querySelector(target);
+        var targetPosition = target.offsetTop;
+        var startPosition = window.pageYOffset;
+        var distance = targetPosition - startPosition;
+        var startTime = null;
+
+        function easeInOutQuad(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        function scroll(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            var timeElapsed = currentTime - startTime;
+            var scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, scrollAmount);
+            if (timeElapsed < duration) requestAnimationFrame(scroll);
+        }
+
+        requestAnimationFrame(scroll);
+    }
+</script>
+<script>
+    let backgroundOverlay = document.getElementById('background-overlay');
+    window.addEventListener("scroll", function () {
+        const currentPosition = window.scrollY;
+        const currentPositionFormatted = currentPosition / 1000;
+        if (currentPositionFormatted < 0.8) {
+            backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,' + currentPositionFormatted + ')';
+            backgroundOverlay.style.backdropFilter = 'blur(' + currentPositionFormatted * 4 + 'px)';
+        } else {
+            backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+            backgroundOverlay.style.backdropFilter = 'blur(4px)';
+        }
+
+    });
+</script>
+</body>
+</html>

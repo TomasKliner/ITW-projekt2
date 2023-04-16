@@ -1,0 +1,168 @@
+@keyframes blinking {
+  20% {
+    opacity: 0.8;
+  }
+  21% {
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 0.5;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0.2;
+  }
+  62% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  81% {
+    opacity: 0.2;
+  }
+  82% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+
+body {
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #000;
+  color: white;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+
+
+  .background-overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  h2{
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: white solid 1px;
+  box-shadow: black 0 0 30px;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      a {
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+
+#end-spacer {
+  height: 200vh;
+  margin: 0;
+}
+
+header {
+  position: relative;
+  height: 100vh;
+
+  h1 {
+    position: absolute;
+    font-size: 8rem;
+    font-weight: 700;
+    white-space: pre !important;
+  }
+
+  figure {
+    font-size: 4rem;
+    font-weight: 1000;
+    white-space: pre;
+
+    position: absolute;
+    bottom: 8rem;
+    right: 4rem;
+    color: red;
+
+    text-shadow: 0 0 2px #ffffff,
+    0 0 10px #ff8f8f,
+    0 0 21px #ff4343,
+    0 0 42px red,
+    0 0 82px red,
+    0 0 92px red,
+    0 0 102px red,
+    0 0 151px red;
+    animation: blinking 2s ease-in-out infinite;
+  }
+}
+#aboutMe{
+  img {
+    transition: 0.5s ease-in-out all;
+    &:hover {
+      background-color: rgba(255, 0, 0, 0.8);
+      scale: 1.02;
+    }
+  }
+
+}
+
