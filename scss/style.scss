@@ -66,28 +66,52 @@ body {
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
+  position: relative;
 
-
-  .background-overlay {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0);
+  #background-overlay {
+    position: absolute;
+    z-index: -50;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
-  h2{
+  #content{
+    position: relative;
+    z-index: 1;
+  }
+
+  h2 {
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
     padding: 0;
     text-align: center;
   }
+  h3{
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+
 }
 
 nav {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
   width: 100%;
   z-index: 1000;
   border-bottom: white solid 1px;
@@ -127,6 +151,23 @@ header {
   position: relative;
   height: 100vh;
 
+  #scrollDown{
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 48px;
+    height: 48px;
+    animation: bounce 1s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0% {
+      top:0;
+    }
+    50% {
+      top: 32px;
+    }
+  }
   h1 {
     position: absolute;
     font-size: 8rem;
@@ -155,9 +196,13 @@ header {
     animation: blinking 2s ease-in-out infinite;
   }
 }
-#aboutMe{
+
+#aboutMe {
   img {
     transition: 0.5s ease-in-out all;
+    padding: 2px;
+    border-radius: 20px;
+
     &:hover {
       background-color: rgba(255, 0, 0, 0.8);
       scale: 1.02;

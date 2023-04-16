@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>John Wick</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.js"
-            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--    <script src="https://code.jquery.com/jquery-3.6.4.js"-->
+    <!--            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>-->
 </head>
 <body>
 <div id="background-overlay">
-    <nav>
+</div>
+<div id="content">
+    <nav id="nav">
         <ul>
             <li onclick="smoothScroll('#aboutMe', 1000)"><a href="#aboutMe" class="scroll">About Me</a></li>
             <li><a href="#travel" class="scroll">Travel</a></li>
@@ -23,12 +26,30 @@
         <figure>
             BABA YAGA
         </figure>
+        <svg id="scrollDown" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"><title>arrow_down [#ffffff]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-60.000000, -6959.000000)" fill="#ffffff">
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path d="M22,6802 C22,6801.448 21.552,6801 21,6801 L7,6801 C6.448,6801 6,6801.448 6,6802 L6,6804 C6,6804.552 6.448,6805 7,6805 L21,6805 C21.552,6805 22,6804.552 22,6804 L22,6802 Z M24,6801 L24,6805 C24,6806.105 23.104,6807 22,6807 L6,6807 C4.895,6807 4,6806.105 4,6805 L4,6801 C4,6799.895 4.895,6799 6,6799 L22,6799 C23.104,6799 24,6799.895 24,6801 L24,6801 Z M18.949,6813.464 C19.34,6813.854 19.34,6814.488 18.95,6814.879 C16.099,6817.729 15.979,6817.849 15.413,6818.415 C14.633,6819.195 13.367,6819.195 12.587,6818.415 L9.05,6814.878 C8.659,6814.488 8.659,6813.855 9.05,6813.464 C9.44,6813.074 10.073,6813.074 10.464,6813.464 L12.146,6815.147 C12.461,6815.462 13,6815.239 13,6814.793 L13,6809.657 C13,6809.104 13.448,6808.657 14,6808.657 C14.552,6808.657 15,6809.104 15,6809.657 L15,6814.791 C15,6815.237 15.539,6815.46 15.854,6815.145 L17.535,6813.464 C17.926,6813.073 18.559,6813.073 18.949,6813.464 L18.949,6813.464 Z"
+                                  id="arrow_down-[#ffffff]"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
     </header>
     <section id="aboutMe">
         <h2>About Me</h2>
         <div>
+            <p>I am a man of sheer will and determination</p>
+            <p>You know, it's funny... people keep asking if I'm back. And for a long time, I didn't really have an answer. But lately, I've been feeling... restless. Like there's unfinished business I need to take care of. So yeah, I'm thinking I'm back. And when I'm back, you better watch out.</p>
             <img id="halfWick" src="../images/halfWick.png" alt="John Wick">
-
         </div>
     </section>
     <section>
@@ -79,7 +100,24 @@
         Spacer
     </p>
 </div>
-<script>
+<script> //NAVBAR ANIMATION
+    const nav = $('#nav')
+    const scrollDown = $('#scrollDown')
+    let isBigger = false;
+    window.addEventListener("scroll", function () {
+        const currentPosition = window.scrollY;
+        if (currentPosition > 50 && !isBigger) {
+            nav.stop().slideDown(1000);
+            scrollDown.stop().slideUp(1000);
+            isBigger = true;
+        } else if (currentPosition < 100 && isBigger) {
+            nav.stop().slideUp(1000);
+            scrollDown.stop().slideDown(1000);
+            isBigger = false;
+        }
+    });
+</script>
+<script>//smooth scrolling
     function smoothScroll(target, duration) {
         var target = document.querySelector(target);
         var targetPosition = target.offsetTop;
@@ -105,7 +143,7 @@
         requestAnimationFrame(scroll);
     }
 </script>
-<script>
+<script> //background image/overlay
     let backgroundOverlay = document.getElementById('background-overlay');
     window.addEventListener("scroll", function () {
         const currentPosition = window.scrollY;
