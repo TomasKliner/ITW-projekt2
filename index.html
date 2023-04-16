@@ -49,26 +49,55 @@
         <div>
             <div>
                 <p>I am a man of sheer will and determination</p>
-                <p>You know, it's funny... people keep asking if I'm back. And for a long time, I didn't really have an answer. But lately, I've been feeling... restless. Like there's unfinished business I need to take care of. So yeah, I'm thinking I'm back. And when I'm back, you better watch out.</p>
+                <p>You know, it's funny... people keep asking if I'm back. And for a long time, I didn't really have an
+                    answer. But lately, I've been feeling... restless. Like there's unfinished business I need to take
+                    care of. So yeah, I'm thinking I'm back. And when I'm back, you better watch out.</p>
             </div>
             <img id="halfWick" src="../images/halfWick.png" alt="John Wick">
         </div>
     </section>
-    <section>
+    <section id="travel">
         <h2>Travel</h2>
         <div>
-            <img src="../images/paris.png" alt="Paris">
-            <img src="../images/rome.png" alt="Rome">
-            <img src="../images/venice.png" alt="Venice">
-            <img src="../images/berlin.png" alt="Berlin">
-            <img src="../images/london.png" alt="London">
-            <img src="../images/istanbul.png" alt="Istanbul">
-            <img src="../images/athens.png" alt="Athens">
-            <img src="../images/cairo.png" alt="Cairo">
-            <img src="../images/capeTown.png" alt="Cape Town">
-            <img src="../images/sydney.png" alt="Sydney">
-            <img src="../images/tokyo.png" alt="Tokyo">
-            <img src="../images/rio.png" alt="Rio">
+            <div>
+                <div>
+                    <h3>Rome</h3>
+                    <p>Rome is a city built on blood and history. Every stone, every alleyway, every monument tells a
+                        story of power, conquest, and betrayal. It's a place where the ancient clashes with the modern,
+                        where the ruins of empires are overshadowed by the glitz and glamour of La Dolce Vita. In Rome,
+                        you can find anything you want, for the right price. But be warned, friend: if you choose to
+                        play in this city, you better be ready to pay the price. Because in Rome, the only rule is
+                        survival of the fittest.</p>
+                </div>
+                <img src="../images/rome.png" alt="Italy">
+            </div>
+            <div>
+                <div>
+                    <h3>Paris</h3>
+                    <p>Paris, the city of lights, love, and death. A place where art and beauty intertwine with danger
+                        and intrigue. From the grandeur of the Eiffel Tower to the narrow streets of Montmartre, Paris
+                        is a city that demands respect. Its history is written in blood, its streets lined with secrets.
+                        In Paris, you can find anything you desire, from the finest cuisine to the deadliest weapons.
+                        But be warned, friend: the City of Love can quickly turn into the City of Death. Because in
+                        Paris, there are those who play by their own rules, and they don't take kindly to outsiders. So
+                        if you plan to walk the streets of Paris, keep your wits about you, and watch your back. Because
+                        in this city, anything can happen, and anyone can be an enemy.</p>
+                </div>
+                <img src="../images/paris2.png" alt="paris">
+            </div>
+            <div>
+                <div>
+                    <h3>Sahara</h3>
+                    <p>The Sahara is a place of extremes, where the scorching sun beats down on the endless dunes and
+                        the winds howl through the night. It's a land of beauty and danger, where one wrong step can
+                        mean certain death. The Sahara is a test of wills, a challenge to survival. But for those who
+                        dare to venture into its depths, there are secrets to be discovered and treasures to be found.
+                        It's a place where the strong thrive and the weak perish, where only the most resourceful can
+                        survive. So if you're planning to cross the Sahara, be prepared for anything. Because in the
+                        desert, there are no rules, only the law of the sand.</p>
+                </div>
+                <img src="../images/sahara.png" alt="Sahara">
+            </div>
         </div>
     </section>
     <section id="skills">
@@ -97,68 +126,67 @@
     </section>
 
 
-
     <p id="end-spacer">
         Spacer
     </p>
 </div>
 <script> //NAVBAR ANIMATION
-    const nav = $('#nav')
-    const scrollDown = $('#scrollDown')
-    let isBigger = false;
-    window.addEventListener("scroll", function () {
-        const currentPosition = window.scrollY;
-        if (currentPosition > 50 && !isBigger) {
-            nav.stop().slideDown(1000);
-            scrollDown.stop().slideUp(1000);
-            isBigger = true;
-        } else if (currentPosition < 100 && isBigger) {
-            nav.stop().slideUp(1000);
-            scrollDown.stop().slideDown(1000);
-            isBigger = false;
-        }
-    });
+const nav = $('#nav')
+const scrollDown = $('#scrollDown')
+let isBigger = false;
+window.addEventListener("scroll", function () {
+    const currentPosition = window.scrollY;
+    if (currentPosition > 50 && !isBigger) {
+        nav.stop().slideDown(1000);
+        scrollDown.stop().slideUp(1000);
+        isBigger = true;
+    } else if (currentPosition < 100 && isBigger) {
+        nav.stop().slideUp(1000);
+        scrollDown.stop().slideDown(1000);
+        isBigger = false;
+    }
+});
 </script>
 <script>//smooth scrolling
-    function smoothScroll(target, duration) {
-        var target = document.querySelector(target);
-        var targetPosition = target.offsetTop;
-        var startPosition = window.pageYOffset;
-        var distance = targetPosition - startPosition;
-        var startTime = null;
+function smoothScroll(target, duration) {
+    var target = document.querySelector(target);
+    var targetPosition = target.offsetTop;
+    var startPosition = window.pageYOffset;
+    var distance = targetPosition - startPosition;
+    var startTime = null;
 
-        function easeInOutQuad(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-
-        function scroll(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            var timeElapsed = currentTime - startTime;
-            var scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, scrollAmount);
-            if (timeElapsed < duration) requestAnimationFrame(scroll);
-        }
-
-        requestAnimationFrame(scroll);
+    function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
     }
+
+    function scroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var scrollAmount = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, scrollAmount);
+        if (timeElapsed < duration) requestAnimationFrame(scroll);
+    }
+
+    requestAnimationFrame(scroll);
+}
 </script>
 <script> //background image/overlay
-    let backgroundOverlay = document.getElementById('background-overlay');
-    window.addEventListener("scroll", function () {
-        const currentPosition = window.scrollY;
-        const currentPositionFormatted = currentPosition / 1000;
-        if (currentPositionFormatted < 0.8) {
-            backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,' + currentPositionFormatted + ')';
-            backgroundOverlay.style.backdropFilter = 'blur(' + currentPositionFormatted * 4 + 'px)';
-        } else {
-            backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            backgroundOverlay.style.backdropFilter = 'blur(4px)';
-        }
+let backgroundOverlay = document.getElementById('background-overlay');
+window.addEventListener("scroll", function () {
+    const currentPosition = window.scrollY;
+    const currentPositionFormatted = currentPosition / 1000;
+    if (currentPositionFormatted < 0.8) {
+        backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,' + currentPositionFormatted + ')';
+        backgroundOverlay.style.backdropFilter = 'blur(' + currentPositionFormatted * 4 + 'px)';
+    } else {
+        backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+        backgroundOverlay.style.backdropFilter = 'blur(4px)';
+    }
 
-    });
+});
 </script>
 </body>
 </html>
