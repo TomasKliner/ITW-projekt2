@@ -27,9 +27,9 @@
             BABA YAGA
         </figure>
         <div id="scrollDownOpen" onclick="forceOpen()">
-            <svg id="scrollDown" viewBox="0 0 20 20" version="1.1"
+            <svg id="scrollDown" viewBox="0 0 20 20"
                  xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff">
+                 fill="#ffffff" stroke="#ffffff">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier"><title>arrow_down</title>
@@ -190,10 +190,6 @@ window.addEventListener("scroll", function () {
         scrollDown.stop().slideDown(1000);
         isBigger = false;
     }
-
-    function forceOpen() {
-
-    }
 });
 
 function forceOpen() {
@@ -203,8 +199,8 @@ function forceOpen() {
 </script>
 <script>//smooth scrolling
 function smoothScroll(target, duration) {
-    var target = document.querySelector(target);
-    var targetPosition = target.offsetTop;
+    target = document.querySelector(target);
+    let targetPosition = target.offsetTop;
     var startPosition = window.pageYOffset;
     var distance = targetPosition - startPosition;
     var startTime = null;
