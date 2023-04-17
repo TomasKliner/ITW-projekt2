@@ -107,6 +107,7 @@ body section {
 }
 
 nav {
+  overflow-x: auto;
   display: none;
   position: fixed;
   top: 0;
@@ -119,6 +120,7 @@ nav {
   box-shadow: black 0 0 30px;
 }
 nav ul {
+  min-width: fit-content;
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -126,6 +128,7 @@ nav ul {
   margin: 0;
 }
 nav ul li a {
+  white-space: nowrap;
   display: block;
   padding: 8px;
   text-decoration: none;
