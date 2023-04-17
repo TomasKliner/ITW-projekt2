@@ -98,6 +98,7 @@ body p {
   font-weight: 500;
   margin: 0;
   padding: 0;
+  text-align: left;
 }
 body section h2 {
   padding-top: 4rem;
@@ -135,6 +136,7 @@ nav ul li a {
   color: white;
   font-size: 2rem;
   font-weight: 700;
+  transition: 0.3s ease-in-out color;
 }
 nav ul li a:hover {
   color: red;
@@ -160,6 +162,8 @@ header > div {
   cursor: pointer;
   border-radius: 0 0 25px 25px;
   transition: 0.5s ease-in-out background-color;
+  border: 1px solid white;
+  border-top: 0;
 }
 header > div:hover {
   background-color: rgba(0, 0, 0, 0.5);
@@ -254,6 +258,101 @@ header figure {
 }
 #travel > div > *:nth-child(2n) {
   flex-direction: row-reverse;
+}
+
+#references img {
+  height: 12rem;
+}
+#references h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+#references h3:before {
+  content: "- ";
+}
+#references q {
+  font-size: 1.7rem;
+  font-weight: 300;
+  text-align: left;
+}
+#references > div {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+#references > div > div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 4rem;
+  text-align: center;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#contact p {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  padding: 4rem;
+}
+#contact .wrapper {
+  position: relative;
+  height: 340px;
+  width: 100%;
+}
+#contact .wrapper > img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 300px;
+  transition: 0.1s ease-in-out all;
+}
+#contact span {
+  transition: 0.2s ease-in-out all;
+}
+#contact:hover {
+  transition: all 0.5s ease-in-out;
+}
+#contact:hover span {
+  color: blue;
+  text-shadow: #6e0000 0 0 25px;
+}
+#contact:hover h2 {
+  display: none;
+}
+#contact:hover:before {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding-top: 4rem;
+  content: "Yeah, I didn't think so";
+  color: red;
+}
+#contact:hover img {
+  scale: 1.1;
+  border: 2px red solid;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-weight: lighter;
+  font-size: 1rem;
+  border-top: 1px white solid;
 }
 
 /*# sourceMappingURL=style.css.map */
