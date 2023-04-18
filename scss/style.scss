@@ -362,6 +362,7 @@ header {
     width: 80%;
     margin: auto;
     padding: 4rem;
+    transition: all 0.2s ease-in-out;
   }
 
   .wrapper {
@@ -369,29 +370,38 @@ header {
     height: 340px;
     width: 100%;
 
-    > img {
+    img {
+      transition: all 0.2s ease-in-out;
       display: block;
       position: absolute;
       top: 0;
       left: 50%;
       transform: translate(-50%, 0);
-      height: 300px;
-      transition: 0.1s ease-in-out all;
+      width: 50%;
+      max-height: 300px;
+      object-fit: cover;
+      object-position: top;
+      border: 10px transparent solid;
     }
   }
 
-  span{
+  span {
     transition: 0.2s ease-in-out all;
   }
+
   &:hover {
-    span{
-      color:blue;
+    span {
+      color: blue;
       text-shadow: #6e0000 0 0 25px;
     }
+
     transition: all 0.5s ease-in-out;
+
     h2 {
       display: none;
-      //content: "i dont think so"
+    }
+    p{
+      rotate: -2deg;
     }
 
     &:before {
@@ -406,8 +416,9 @@ header {
     }
 
     img {
-      scale: 1.1;
-      border: 2px red solid;
+      width: 55%;
+      border: 10px rgba(255, 0, 0, 0.45) solid;
+      rotate: 2deg;
     }
   }
 }

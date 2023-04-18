@@ -307,20 +307,25 @@ header figure {
   width: 80%;
   margin: auto;
   padding: 4rem;
+  transition: all 0.2s ease-in-out;
 }
 #contact .wrapper {
   position: relative;
   height: 340px;
   width: 100%;
 }
-#contact .wrapper > img {
+#contact .wrapper img {
+  transition: all 0.2s ease-in-out;
   display: block;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  height: 300px;
-  transition: 0.1s ease-in-out all;
+  width: 50%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: top;
+  border: 10px transparent solid;
 }
 #contact span {
   transition: 0.2s ease-in-out all;
@@ -335,6 +340,9 @@ header figure {
 #contact:hover h2 {
   display: none;
 }
+#contact:hover p {
+  rotate: -2deg;
+}
 #contact:hover:before {
   font-size: 3rem;
   font-weight: 700;
@@ -346,8 +354,9 @@ header figure {
   color: red;
 }
 #contact:hover img {
-  scale: 1.1;
-  border: 2px red solid;
+  width: 55%;
+  border: 10px rgba(255, 0, 0, 0.45) solid;
+  rotate: 2deg;
 }
 
 footer {
