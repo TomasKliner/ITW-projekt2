@@ -248,7 +248,16 @@ header figure {
 }
 
 #travel img {
-  height: 20rem;
+  width: 25%;
+}
+#travel h3 {
+  font-weight: 500;
+}
+#travel p {
+  border-top: 2px solid white;
+  padding-top: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 300;
 }
 #travel > div > * {
   display: flex;
