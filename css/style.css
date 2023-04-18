@@ -167,7 +167,7 @@ header > div {
 }
 header > div:hover {
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
 }
 header #scrollDown {
   position: absolute;
@@ -188,7 +188,7 @@ header #scrollDown {
 }
 header h1 {
   position: absolute;
-  font-size: 8rem;
+  font-size: 6rem;
   font-weight: 700;
   white-space: pre !important;
 }
@@ -236,12 +236,15 @@ header figure {
   text-align: center;
   justify-items: center;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   object-fit: cover;
   font-size: 1.5rem;
 }
 #skills #martialArts > div img {
-  height: 20rem;
+  height: 15rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 #travel img {

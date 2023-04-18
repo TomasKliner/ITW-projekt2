@@ -183,7 +183,7 @@ header {
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(1px);
     }
   }
 
@@ -208,7 +208,7 @@ header {
 
   h1 {
     position: absolute;
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: 700;
     white-space: pre !important;
   }
@@ -268,13 +268,17 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 2rem;
     padding: 2rem;
+
     text-align: center;
     justify-items: center;
     align-items: center;
+    justify-content: center;
     gap: 2rem;
 
     img {
-      height: 20rem;
+      height: 15rem;
+      width: 100%;
+      object-fit: cover;
     }
 
     object-fit: cover;
