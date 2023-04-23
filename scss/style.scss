@@ -126,34 +126,97 @@ body {
 }
 
 nav {
+  height: fit-content;
+  overflow-y: hidden;
   overflow-x: auto;
   display: none;
   position: fixed;
   top: 0;
   left: 0;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(2px);
   width: 100%;
   z-index: 1000;
   border-bottom: white solid 1px;
   box-shadow: black 0 0 30px;
 
+  //media break for sm screens
+
   ul {
     min-width: fit-content;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
+    @media (max-width: $md) {
+      flex-direction: column;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+    }
 
     .red {
       color: red !important;
 
     }
 
+    #serviceNav {
+      @media (max-width: $md) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        svg {
+          margin: 0.5rem;
+        }
+        border-bottom: 1px solid white;
+      }
+    }
+
+    #hamburger {
+      @media (min-width: $md) {
+        display: none;
+      }
+      background-color: rgba(255, 0, 0, 0.1);
+      border-radius: 10%;
+      width: 4rem;
+      cursor: pointer;
+      transition: 0.3s ease-in-out background-color;
+
+      &:hover {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+    }
+
+    #logo {
+      width: 4rem;
+      cursor: pointer;
+      transition: 0.3s ease-in-out background-color;
+      border-radius: 20%;
+
+      &:hover {
+        background-color: rgba(255, 0, 0, 0.5);
+      }
+    }
+
+    .navlink {
+      transition: all 0.3s ease-in-out;
+      height: 3rem;
+    }
+
+    .hiddenNav {
+      @media (max-width: $md) {
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
     li {
-      a {
+      a, svg {
         white-space: nowrap;
         display: block;
         padding: 8px;
@@ -184,8 +247,8 @@ header {
 
   > div {
     position: relative;
-    width: 60px;
-    height: 120px;
+    width: 40px;
+    height: 100px;
     background-color: rgba(0, 0, 0, 0.2);
     top: -60px;
     //padding-top: 30px;
@@ -208,8 +271,8 @@ header {
     top: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 40px;
     animation: bounce 1s ease-in-out infinite;
   }
 
@@ -225,8 +288,17 @@ header {
   h1 {
     position: absolute;
     font-size: 6rem;
+    @media (max-width: $md) {
+      font-size: 4rem;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+    @media (max-width: $sm) {
+      font-size: 3rem;
+    }
     font-weight: 700;
     white-space: pre !important;
+    top: 4rem;
   }
 
   figure {
@@ -249,6 +321,14 @@ header {
     0 0 102px red,
     0 0 151px red;
     animation: blinking 2s ease-in-out infinite;
+
+    @media (max-width: $md) {
+      font-size: 3rem;
+      bottom: 4rem;
+    }
+    @media (max-width: $sm) {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -503,6 +583,7 @@ footer {
 
 #violence {
   position: fixed;
+  z-index: 9999999999999999;
   bottom: 0;
   left: 0;
   display: flex;

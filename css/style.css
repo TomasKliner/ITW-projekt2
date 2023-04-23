@@ -109,12 +109,14 @@ body section {
 }
 
 nav {
+  height: fit-content;
+  overflow-y: hidden;
   overflow-x: auto;
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(2px);
   width: 100%;
   z-index: 1000;
@@ -125,14 +127,70 @@ nav ul {
   min-width: fit-content;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
 }
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
 nav ul .red {
   color: red !important;
 }
-nav ul li a {
+@media (max-width: 768px) {
+  nav ul #serviceNav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+  }
+  nav ul #serviceNav svg {
+    margin: 0.5rem;
+  }
+}
+nav ul #hamburger {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 10%;
+  width: 4rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out background-color;
+}
+@media (min-width: 768px) {
+  nav ul #hamburger {
+    display: none;
+  }
+}
+nav ul #hamburger:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+nav ul #logo {
+  width: 4rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out background-color;
+  border-radius: 20%;
+}
+nav ul #logo:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+nav ul .navlink {
+  transition: all 0.3s ease-in-out;
+  height: 3rem;
+}
+@media (max-width: 768px) {
+  nav ul .hiddenNav {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+}
+nav ul li a, nav ul li svg {
   white-space: nowrap;
   display: block;
   padding: 8px;
@@ -142,7 +200,7 @@ nav ul li a {
   font-weight: 700;
   transition: 0.3s ease-in-out color;
 }
-nav ul li a:hover {
+nav ul li a:hover, nav ul li svg:hover {
   color: red;
 }
 
@@ -157,8 +215,8 @@ header {
 }
 header > div {
   position: relative;
-  width: 60px;
-  height: 120px;
+  width: 40px;
+  height: 100px;
   background-color: rgba(0, 0, 0, 0.2);
   top: -60px;
   left: 50%;
@@ -178,8 +236,8 @@ header #scrollDown {
   top: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 40px;
   animation: bounce 1s ease-in-out infinite;
 }
 @keyframes bounce {
@@ -195,6 +253,19 @@ header h1 {
   font-size: 6rem;
   font-weight: 700;
   white-space: pre !important;
+  top: 4rem;
+}
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 4rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 3rem;
+  }
 }
 header figure {
   display: block;
@@ -207,6 +278,17 @@ header figure {
   color: red;
   text-shadow: 0 0 2px #ffffff, 0 0 10px #ff8f8f, 0 0 21px #ff4343, 0 0 42px red, 0 0 82px red, 0 0 92px red, 0 0 102px red, 0 0 151px red;
   animation: blinking 2s ease-in-out infinite;
+}
+@media (max-width: 768px) {
+  header figure {
+    font-size: 3rem;
+    bottom: 4rem;
+  }
+}
+@media (max-width: 576px) {
+  header figure {
+    font-size: 2.5rem;
+  }
 }
 
 #aboutMe > div {
@@ -416,6 +498,7 @@ footer {
 
 #violence {
   position: fixed;
+  z-index: 10000000000000000;
   bottom: 0;
   left: 0;
   display: flex;
