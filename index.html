@@ -5,8 +5,6 @@
     <title>John Wick</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--    <script src="https://code.jquery.com/jquery-3.6.4.js"-->
-    <!--            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>-->
 </head>
 <body>
 <div id="background-overlay">
@@ -14,11 +12,14 @@
 <div id="content">
     <nav id="nav">
         <ul>
-            <li onclick="smoothScroll('#aboutMe', 1000)"><a href="#aboutMe" class="scroll">About Me</a></li>
-            <li onclick="smoothScroll('#travel', 1000)"><a href="#travel" class="scroll">Travel</a></li>
-            <li onclick="smoothScroll('#skills', 1000)"><a href="#skills" class="scroll">Skills</a></li>
-            <li onclick="smoothScroll('#references', 1000)"><a href="#references" class="scroll">References</a></li>
-            <li onclick="smoothScroll('#contact', 1000)"><a href="#contact" class="scroll">Contact</a></li>
+            <li  onclick="smoothScroll('#aboutMe', 1000)"><a id="aboutLink" href="#aboutMe" class="scroll">About Me</a>
+            </li>
+            <li  onclick="smoothScroll('#travel', 1000)"><a id="travelLink" href="#travel" class="scroll">Travel</a></li>
+            <li  onclick="smoothScroll('#skills', 1000)"><a id="skillsLink" href="#skills" class="scroll">Skills</a></li>
+            <li  onclick="smoothScroll('#references', 1000)"><a id="referencesLink" href="#references" class="scroll">References</a>
+            </li>
+            <li  onclick="smoothScroll('#contact', 1000)"><a id="contactLink" href="#contact" class="scroll">Contact</a>
+            </li>
         </ul>
     </nav>
     <header>
@@ -132,14 +133,17 @@
         <div>
             <div>
                 <h3>Winston</h3>
-                <q cite="Winston">"You stabbed the devil in the back and forced him back into the life that he had just left. You incinerated the priest's temple. Burned it to the ground. Now he's free of the marker, what do you think he'll do?"</q>
+                <q cite="Winston">"You stabbed the devil in the back and forced him back into the life that he had just
+                    left. You incinerated the priest's temple. Burned it to the ground. Now he's free of the marker,
+                    what do you think he'll do?"</q>
             </div>
             <img src="../images/winston.jpg" alt="Winston">
         </div>
         <div>
             <div>
                 <h3>The Bowery King</h3>
-                <q cite="The Bowery King">"John Wick isn't the Boogeyman... He's the man you send to kill the f***ing Boogeyman!"</q>
+                <q cite="The Bowery King">"John Wick isn't the Boogeyman... He's the man you send to kill the f***ing
+                    Boogeyman!"</q>
             </div>
             <img src="../images/king.jpg" alt="The Bowery King">
         </div>
@@ -162,7 +166,8 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>
-            Listen, buddy. You got it all wrong. <span>You don't find John Wick, John Wick finds you.</span> And let me tell you
+            Listen, buddy. You got it all wrong. <span>You don't find John Wick, John Wick finds you.</span> And let me
+            tell you
             something, when I do find you, you better start praying, 'cause I'm coming for you with everything I've got.
             I'm not one to mess around, and I won't hesitate to take out anyone who gets in my way. So, if you're smart,
             you'll stay out of my path and hope that I never come looking for you. Because when I do, it's game over.
@@ -237,6 +242,56 @@ window.addEventListener("scroll", function () {
     }
 
 });
+</script>
+<script>
+    const about = document.getElementById('aboutMe');
+    const travel = document.getElementById('travel');
+    const skills = document.getElementById('skills');
+    const references = document.getElementById('references');
+    const contact = document.getElementById('contact');
+
+
+
+    window.addEventListener("scroll", function () {
+        const aboutPosition = [about.offsetTop, about.offsetTop + about.offsetHeight];
+        const travelPosition = [travel.offsetTop, travel.offsetTop + travel.offsetHeight];
+        const skillsPosition = [skills.offsetTop, skills.offsetTop + skills.offsetHeight];
+        const referencesPosition = [references.offsetTop, references.offsetTop + references.offsetHeight];
+        const contactPosition = [contact.offsetTop, contact.offsetTop + contact.offsetHeight];
+
+        const currentPosition = window.scrollY + 100;
+
+        const aboutLink = document.getElementById('aboutLink');
+        if (currentPosition >= aboutPosition[0] && currentPosition <= aboutPosition[1]) {
+            aboutLink.classList.add('red');
+        } else {
+            aboutLink.classList.remove('red');
+        }
+        const travelLink = document.getElementById('travelLink');
+        if (currentPosition >= travelPosition[0] && currentPosition <= travelPosition[1]) {
+            travelLink.classList.add('red');
+        } else {
+            travelLink.classList.remove('red');
+        }
+        const skillsLink = document.getElementById('skillsLink');
+        if (currentPosition >= skillsPosition[0] && currentPosition <= skillsPosition[1]) {
+            skillsLink.classList.add('red');
+        } else {
+            skillsLink.classList.remove('red');
+        }
+        const referencesLink = document.getElementById('referencesLink');
+        if (currentPosition >= referencesPosition[0] && currentPosition <= referencesPosition[1]) {
+            referencesLink.classList.add('red');
+        } else {
+            referencesLink.classList.remove('red');
+        }
+        const contactLink = document.getElementById('contactLink');
+        if (currentPosition >= contactPosition[0] && currentPosition <= contactPosition[1]) {
+            contactLink.classList.add('red');
+        } else {
+            contactLink.classList.remove('red');
+        }
+    })
 </script>
 </body>
 </html>
