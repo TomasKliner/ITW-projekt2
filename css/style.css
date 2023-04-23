@@ -132,7 +132,7 @@ nav ul {
   padding: 0;
   margin: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   nav ul {
     flex-direction: column;
     margin: auto;
@@ -143,7 +143,7 @@ nav ul {
 nav ul .red {
   color: red !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   nav ul #serviceNav {
     width: 100%;
     display: flex;
@@ -162,7 +162,7 @@ nav ul #hamburger {
   cursor: pointer;
   transition: 0.3s ease-in-out background-color;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   nav ul #hamburger {
     display: none;
   }
@@ -183,7 +183,7 @@ nav ul .navlink {
   transition: all 0.3s ease-in-out;
   height: 3rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   nav ul .hiddenNav {
     height: 0;
     overflow: hidden;
@@ -255,7 +255,7 @@ header h1 {
   white-space: pre !important;
   top: 4rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   header h1 {
     font-size: 4rem;
     left: 50%;
@@ -279,7 +279,7 @@ header figure {
   text-shadow: 0 0 2px #ffffff, 0 0 10px #ff8f8f, 0 0 21px #ff4343, 0 0 42px red, 0 0 82px red, 0 0 92px red, 0 0 102px red, 0 0 151px red;
   animation: blinking 2s ease-in-out infinite;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   header figure {
     font-size: 3rem;
     bottom: 4rem;
@@ -313,7 +313,7 @@ header figure {
   height: 10rem;
   width: 10rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe #coinSwitch {
     top: 1rem;
     left: 50%;
@@ -326,7 +326,7 @@ header figure {
   height: 10rem;
   transition: 0.5s ease-in-out all;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe #coinSwitch #coin1 {
     width: 8rem;
     height: 8rem;
@@ -350,7 +350,7 @@ header figure {
   width: 0;
   height: 10rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe #coinSwitch #coin2 {
     height: 8rem;
   }
@@ -368,7 +368,7 @@ header figure {
   opacity: 1;
   width: 10rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe #coinSwitch:hover #coin2 {
     width: 8rem;
   }
@@ -385,7 +385,7 @@ header figure {
   height: 35rem;
   aspect-ratio: initial;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe > div > img {
     height: 25rem;
   }
@@ -402,7 +402,7 @@ header figure {
 #aboutMe p {
   font-size: 1.5rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #aboutMe p {
     font-size: 1.2rem;
   }
@@ -430,7 +430,7 @@ header figure {
   object-fit: cover;
   font-size: 1.5rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #skills section > div {
     grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
   }
@@ -449,7 +449,7 @@ header figure {
 #travel img {
   width: 25%;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #travel img {
     width: 60%;
   }
@@ -472,7 +472,7 @@ header figure {
   padding: 0 4rem;
   text-align: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #travel > div > * {
     flex-direction: column;
     gap: 0.5rem;
@@ -482,7 +482,7 @@ header figure {
 #travel > div > *:nth-child(2n) {
   flex-direction: row-reverse;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   #travel > div > *:nth-child(2n) {
     flex-direction: column;
   }
