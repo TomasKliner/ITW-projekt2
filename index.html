@@ -145,11 +145,11 @@
             <h3>Martial Arts</h3>
             <div>
                 <div>
-                    <img src="../images/jitsu.png" alt="Boxing">
+                    <img src="../images/jitsu.png" alt="jitsu">
                     <h4>Brazilian JiuJitsu</h4>
                 </div>
                 <div>
-                    <img src="../images/kungFu.png" alt="Boxing">
+                    <img src="../images/kungFu.png" alt="kungFu">
                     <h4>KungFu</h4>
                 </div>
                 <div>
@@ -157,7 +157,7 @@
                     <h4>ClothFu</h4>
                 </div>
                 <div>
-                    <img src="../images/2finger.png" alt="Boxing">
+                    <img src="../images/2finger.png" alt="2finger">
                     <h4>Two Finger Touch</h4>
                 </div>
             </div>
@@ -327,6 +327,7 @@ window.addEventListener("scroll", function () {
         backgroundOverlay.style.backdropFilter = 'blur(' + currentPositionFormatted * 4 + 'px)';
     } else {
         backgroundOverlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+        false
         backgroundOverlay.style.backdropFilter = 'blur(4px)';
     }
 
@@ -382,10 +383,15 @@ window.addEventListener("scroll", function () {
     })
 </script>
 <script>
+    let btn = document.getElementById('violenceBtn');
     document.addEventListener("DOMContentLoaded", function () {
+        // if (localStorage.getItem('violence') === 'true') {
+        //
+        // }
         changeToSafe()
+        btn.classList.add('redBg')
     });
-    const alts = ["Axe", "pencil", "Horse", "Books", "assault rifle", "9mm", "Revolver", "Shotgun", "cloth", "clothFu", "Boxing"]
+    const alts = ["Axe", "pencil", "Horse", "Books", "assault rifle", "9mm", "Revolver", "Shotgun", "clothFu", "jitsu"]
 
     function changeToViolence() {
         for (let i = 0; i < alts.length; i++) {
@@ -421,8 +427,6 @@ window.addEventListener("scroll", function () {
     }
 
 
-    let btn = document.getElementById('violenceBtn');
-
     btn.addEventListener("click", function () {
         function rgba(number, number2, number3, number4) {
             return "rgba(" + number + "," + number2 + "," + number3 + "," + number4 + ")";
@@ -430,17 +434,15 @@ window.addEventListener("scroll", function () {
 
         if (btn.textContent === "OFF") {
             btn.textContent = "ON";
-            btn.style.backgroundColor = rgba(0, 255, 0, 0.8);
+            btn.classList.remove('redBg');
             localStorage.setItem("violence", "ON"); //storing user preference
             changeToViolence();
         } else {
             btn.textContent = "OFF";
-            btn.style.backgroundColor = rgba(255, 0, 0, 0.8);
+            btn.classList.add('redBg');
             localStorage.setItem("violence", "OFF"); //storing user preference
             changeToSafe();
         }
-
-
     })
 </script>
 </body>

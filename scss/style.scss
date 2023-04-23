@@ -403,6 +403,13 @@ header {
   section > div {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    @media (max-width: $md) {
+      grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+    }
+    @media (max-width: $sm) {
+      grid-template-columns: minmax(100px, 1fr);
+    }
+
     grid-gap: 2rem;
     padding: 2rem;
 
@@ -426,6 +433,9 @@ header {
 #travel {
   img {
     width: 25%;
+    @media (max-width: $md) {
+      width: 60%;
+    }
   }
 
   h3 {
@@ -449,10 +459,18 @@ header {
       gap: 2rem;
       padding: 0 4rem;
       text-align: center;
+      @media (max-width: $md) {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
     }
 
     > *:nth-child(2n) {
       flex-direction: row-reverse;
+      @media (max-width: $md) {
+        flex-direction: column;
+      }
     }
   }
 }
@@ -600,7 +618,7 @@ footer {
 
   button {
     z-index: 9999999999999999;
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: green;
     border: 1px solid white;
     border-radius: 5px;
     padding: 0.5rem;
@@ -610,5 +628,12 @@ footer {
     transition: 0.2s ease-in-out all;
     width: 64px;
     cursor: pointer;
+
+    &:hover {
+      background-color: orange;
+    }
+  }
+  .redBg{
+    background-color: red;
   }
 }
