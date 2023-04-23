@@ -10,15 +10,19 @@
 <div id="background-overlay">
 </div>
 <div id="content">
+    <div id="violence">
+        <span>Violence mode:</span>
+        <button id="violenceBtn">OFF</button>
+    </div>
     <nav id="nav">
         <ul>
-            <li  onclick="smoothScroll('#aboutMe', 1000)"><a id="aboutLink" href="#aboutMe" class="scroll">About Me</a>
+            <li onclick="smoothScroll('#aboutMe', 1000)"><a id="aboutLink" href="#aboutMe" class="scroll">About Me</a>
             </li>
-            <li  onclick="smoothScroll('#travel', 1000)"><a id="travelLink" href="#travel" class="scroll">Travel</a></li>
-            <li  onclick="smoothScroll('#skills', 1000)"><a id="skillsLink" href="#skills" class="scroll">Skills</a></li>
-            <li  onclick="smoothScroll('#references', 1000)"><a id="referencesLink" href="#references" class="scroll">References</a>
+            <li onclick="smoothScroll('#travel', 1000)"><a id="travelLink" href="#travel" class="scroll">Travel</a></li>
+            <li onclick="smoothScroll('#skills', 1000)"><a id="skillsLink" href="#skills" class="scroll">Skills</a></li>
+            <li onclick="smoothScroll('#references', 1000)"><a id="referencesLink" href="#references" class="scroll">References</a>
             </li>
-            <li  onclick="smoothScroll('#contact', 1000)"><a id="contactLink" href="#contact" class="scroll">Contact</a>
+            <li onclick="smoothScroll('#contact', 1000)"><a id="contactLink" href="#contact" class="scroll">Contact</a>
             </li>
         </ul>
     </nav>
@@ -56,6 +60,10 @@
                 <p>You know, it's funny... people keep asking if I'm back. And for a long time, I didn't really have an
                     answer. But lately, I've been feeling... restless. Like there's unfinished business I need to take
                     care of. So yeah, I'm thinking I'm back. And when I'm back, you better watch out.</p>
+                <div id="coinSwitch">
+                    <img id="coin1" src="../images/coin.png" alt="coin front">
+                    <img id="coin2" src="../images/coin1.png" alt="coin back">
+                </div>
             </div>
             <img id="halfWick" src="../images/halfWick.png" alt="John Wick">
         </div>
@@ -108,6 +116,48 @@
         <h2>Skills</h2>
         <section id="martialArts">
             <h3>Martial Arts</h3>
+            <div>
+                <div>
+                    <img src="../images/jitsu.png" alt="Boxing">
+                    <h4>Brazilian JiuJitsu</h4>
+                </div>
+                <div>
+                    <img src="../images/kungFu.png" alt="Boxing">
+                    <h4>KungFu</h4>
+                </div>
+                <div>
+                    <img src="../images/clothFu.png" alt="clothFu">
+                    <h4>ClothFu</h4>
+                </div>
+                <div>
+                    <img src="../images/2finger.png" alt="Boxing">
+                    <h4>Two Finger Touch</h4>
+                </div>
+            </div>
+        </section>
+        <section id="guns">
+            <h3>Gun handeling</h3>
+            <div>
+                <div>
+                    <img src="../images/jitsu.png" alt="Boxing">
+                    <h4>Brazilian JiuJitsu</h4>
+                </div>
+                <div>
+                    <img src="../images/kungFu.png" alt="Boxing">
+                    <h4>KungFu</h4>
+                </div>
+                <div>
+                    <img src="../images/clothFu.png" alt="clothFu">
+                    <h4>ClothFu</h4>
+                </div>
+                <div>
+                    <img src="../images/2finger.png" alt="Boxing">
+                    <h4>Two Finger Touch</h4>
+                </div>
+            </div>
+        </section>
+        <section id="otherTechniques">
+            <h3>Proprietary Techniques</h3>
             <div>
                 <div>
                     <img src="../images/jitsu.png" alt="Boxing">
@@ -251,7 +301,6 @@ window.addEventListener("scroll", function () {
     const contact = document.getElementById('contact');
 
 
-
     window.addEventListener("scroll", function () {
         const aboutPosition = [about.offsetTop, about.offsetTop + about.offsetHeight];
         const travelPosition = [travel.offsetTop, travel.offsetTop + travel.offsetHeight];
@@ -291,6 +340,59 @@ window.addEventListener("scroll", function () {
         } else {
             contactLink.classList.remove('red');
         }
+    })
+</script>
+<script>
+    function changeToViolence() {
+        let images = document.querySelectorAll('img');
+        for (let i = 0; i < images.length; i++) {
+            let imgSrc = images[i].src;
+            let dotPosition = imgSrc.lastIndexOf(".");
+            let violenceFile = "notExistingLol";
+            if (dotPosition !== -1) {
+                violenceFile = imgSrc.slice(dotPosition - 4, dotPosition)
+            }
+            images[i].src = violenceFile;
+        }
+
+    }
+
+    function changeToSafe() {
+        let images = document.querySelectorAll('img');
+        for (let i = 0; i < images.length; i++) {
+            let imgSrc = images[i].src;
+            console.log(images[i].src);
+            let dotPosition = imgSrc.lastIndexOf(".");
+            let safeFile = "notExistingLol";
+
+            if (dotPosition !== -1) {
+                safeFile = imgSrc.slice(0, dotPosition) + 'Safe' + imgSrc.slice(dotPosition);
+            }
+            images[i].src = safeFile;
+        }
+    }
+
+
+    let btn = document.getElementById('violenceBtn');
+
+    btn.addEventListener("click", function () {
+        function rgba(number, number2, number3, number4) {
+            return "rgba(" + number + "," + number2 + "," + number3 + "," + number4 + ")";
+        }
+
+        if (btn.textContent === "OFF") {
+            btn.textContent = "ON";
+            btn.style.backgroundColor = rgba(0, 255, 0, 0.8);
+            localStorage.setItem("violence", "ON");
+            changeToViolence();
+        } else {
+            btn.textContent = "OFF";
+            btn.style.backgroundColor = rgba(255, 0, 0, 0.8);
+            localStorage.setItem("violence", "OFF");
+            changeToSafe();
+        }
+
+
     })
 </script>
 </body>
