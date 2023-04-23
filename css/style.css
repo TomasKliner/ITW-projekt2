@@ -218,13 +218,46 @@ header figure {
   padding: 0 4rem;
   text-align: center;
 }
-#aboutMe img {
+#aboutMe #coinSwitch {
+  position: relative;
+  top: 5rem;
+  left: 10rem;
+  height: 10rem;
+  width: 10rem;
+}
+#aboutMe #coinSwitch #coin1 {
+  cursor: crosshair;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.5s ease-in-out all;
+}
+#aboutMe #coinSwitch #coin2 {
+  cursor: crosshair;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  border-radius: 50%;
+  transition: 0.5s ease-in-out all;
+  width: 0;
+  height: 10rem;
+}
+#aboutMe #coinSwitch:hover #coin1 {
+  opacity: 0;
+  width: 0;
+}
+#aboutMe #coinSwitch:hover #coin2 {
+  opacity: 1;
+  width: 10rem;
+}
+#aboutMe > div > img {
   transition: 0.5s ease-in-out all;
   padding: 2px;
   border-radius: 20px;
   height: 40rem;
 }
-#aboutMe img:hover {
+#aboutMe > div > img:hover {
   background-color: rgba(255, 0, 0, 0.8);
   scale: 1.02;
 }
@@ -233,7 +266,7 @@ header figure {
   color: black;
   background-color: rgba(255, 255, 255, 0.5);
 }
-#skills #martialArts > div {
+#skills section > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 2rem;
@@ -246,7 +279,7 @@ header figure {
   object-fit: cover;
   font-size: 1.5rem;
 }
-#skills #martialArts > div img {
+#skills section > div img {
   height: 15rem;
   width: 100%;
   object-fit: cover;
@@ -379,6 +412,35 @@ footer {
   font-weight: lighter;
   font-size: 1rem;
   border-top: 1px white solid;
+}
+
+#violence {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+  border-top: 1px white solid;
+  border-right: 4px white solid;
+  border-radius: 0 5px 0 0;
+  gap: 1rem;
+}
+#violence button {
+  z-index: 10000000000000000;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  color: white;
+  transition: 0.2s ease-in-out all;
+  width: 64px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
