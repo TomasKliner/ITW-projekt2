@@ -300,6 +300,12 @@ header figure {
   padding: 0 4rem;
   text-align: center;
 }
+#aboutMe > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
 #aboutMe #coinSwitch {
   position: relative;
   top: 5rem;
@@ -307,11 +313,30 @@ header figure {
   height: 10rem;
   width: 10rem;
 }
+@media (max-width: 768px) {
+  #aboutMe #coinSwitch {
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
 #aboutMe #coinSwitch #coin1 {
   cursor: crosshair;
   width: 10rem;
   height: 10rem;
   transition: 0.5s ease-in-out all;
+}
+@media (max-width: 768px) {
+  #aboutMe #coinSwitch #coin1 {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+@media (max-width: 576px) {
+  #aboutMe #coinSwitch #coin1 {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 #aboutMe #coinSwitch #coin2 {
   cursor: crosshair;
@@ -325,6 +350,16 @@ header figure {
   width: 0;
   height: 10rem;
 }
+@media (max-width: 768px) {
+  #aboutMe #coinSwitch #coin2 {
+    height: 8rem;
+  }
+}
+@media (max-width: 576px) {
+  #aboutMe #coinSwitch #coin2 {
+    height: 6rem;
+  }
+}
 #aboutMe #coinSwitch:hover #coin1 {
   opacity: 0;
   width: 0;
@@ -333,15 +368,49 @@ header figure {
   opacity: 1;
   width: 10rem;
 }
+@media (max-width: 768px) {
+  #aboutMe #coinSwitch:hover #coin2 {
+    width: 8rem;
+  }
+}
+@media (max-width: 576px) {
+  #aboutMe #coinSwitch:hover #coin2 {
+    width: 6rem;
+  }
+}
 #aboutMe > div > img {
   transition: 0.5s ease-in-out all;
   padding: 2px;
   border-radius: 20px;
-  height: 40rem;
+  height: 35rem;
+  aspect-ratio: initial;
+}
+@media (max-width: 768px) {
+  #aboutMe > div > img {
+    height: 25rem;
+  }
+}
+@media (max-width: 576px) {
+  #aboutMe > div > img {
+    height: 10rem;
+  }
 }
 #aboutMe > div > img:hover {
   background-color: rgba(255, 0, 0, 0.8);
   scale: 1.02;
+}
+#aboutMe p {
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  #aboutMe p {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 576px) {
+  #aboutMe p {
+    font-size: 1rem;
+  }
 }
 
 #skills {
