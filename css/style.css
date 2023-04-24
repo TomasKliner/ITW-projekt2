@@ -394,7 +394,7 @@ header figure {
 }
 #aboutMe > div > img:hover {
   background-color: rgba(255, 0, 0, 0.8);
-  scale: 1.02;
+  transform: scale(1.02);
 }
 #aboutMe p {
   font-size: 1.5rem;
@@ -592,7 +592,7 @@ header figure {
   display: none;
 }
 #contact:hover p {
-  rotate: -2deg;
+  transform: rotate(-2deg);
 }
 #contact:hover:before {
   font-size: 3rem;
@@ -607,7 +607,7 @@ header figure {
 #contact:hover img {
   width: 55%;
   border: 10px rgba(255, 0, 0, 0.45) solid;
-  rotate: 2deg;
+  transform: rotate(2deg);
 }
 
 footer {
