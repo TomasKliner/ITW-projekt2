@@ -73,7 +73,7 @@
                         <g transform="translate(-60.000000, -6959.000000)" fill="#ffffff">
                             <g transform="translate(56.000000, 160.000000)">
                                 <path d="M22,6802 C22,6801.448 21.552,6801 21,6801 L7,6801 C6.448,6801 6,6801.448 6,6802 L6,6804 C6,6804.552 6.448,6805 7,6805 L21,6805 C21.552,6805 22,6804.552 22,6804 L22,6802 Z M24,6801 L24,6805 C24,6806.105 23.104,6807 22,6807 L6,6807 C4.895,6807 4,6806.105 4,6805 L4,6801 C4,6799.895 4.895,6799 6,6799 L22,6799 C23.104,6799 24,6799.895 24,6801 L24,6801 Z M18.949,6813.464 C19.34,6813.854 19.34,6814.488 18.95,6814.879 C16.099,6817.729 15.979,6817.849 15.413,6818.415 C14.633,6819.195 13.367,6819.195 12.587,6818.415 L9.05,6814.878 C8.659,6814.488 8.659,6813.855 9.05,6813.464 C9.44,6813.074 10.073,6813.074 10.464,6813.464 L12.146,6815.147 C12.461,6815.462 13,6815.239 13,6814.793 L13,6809.657 C13,6809.104 13.448,6808.657 14,6808.657 C14.552,6808.657 15,6809.104 15,6809.657 L15,6814.791 C15,6815.237 15.539,6815.46 15.854,6815.145 L17.535,6813.464 C17.926,6813.073 18.559,6813.073 18.949,6813.464 L18.949,6813.464 Z"
-                                      ></path>
+                                ></path>
                             </g>
                         </g>
                     </g>
@@ -337,6 +337,14 @@ window.addEventListener("scroll", function () {
 });
 </script>
 <script>
+    function reloadNav() {
+        let tempN = document.getElementsByTagName('nav');
+        tempN.innerHTML = tempN.innerHTML + "";
+    }
+
+    window.addEventListener("resize", function () { //fix for rezing window Navbar behaviour
+        reloadNav();
+    });
     const about = document.getElementById('aboutMe');
     const travel = document.getElementById('travel');
     const skills = document.getElementById('skills');
@@ -388,9 +396,6 @@ window.addEventListener("scroll", function () {
 <script>
     let btn = document.getElementById('violenceBtn');
     document.addEventListener("DOMContentLoaded", function () {
-        // if (localStorage.getItem('violence') === 'true') {
-        //
-        // }
         changeToSafe()
         btn.classList.add('redBg')
     });
@@ -408,7 +413,6 @@ window.addEventListener("scroll", function () {
             imgToSafe(document.querySelector(`img[alt="${alts[i]}"]`));
         }
     }
-
     function imgToViolence(img) {
         let imgSrc = img.src;
         let dotPosition = imgSrc.lastIndexOf(".");
@@ -416,6 +420,7 @@ window.addEventListener("scroll", function () {
         if (dotPosition !== -1) {
             violenceFile = imgSrc.slice(0, dotPosition - 4) + imgSrc.slice(dotPosition);
         }
+        doAnimation(img)
         img.src = violenceFile;
     }
 
@@ -426,20 +431,36 @@ window.addEventListener("scroll", function () {
         if (dotPosition !== -1) {
             safeFile = imgSrc.slice(0, dotPosition) + 'Safe' + imgSrc.slice(dotPosition);
         }
+        doAnimation(img)
         img.src = safeFile;
     }
-
+    function doAnimation(img) {
+        img.animate([
+            {transform: 'rotate(0deg)'},
+            {transform: 'rotate(4eg)'},
+            {transform: 'rotate(-4deg)'},
+            {transform: 'rotate(0deg)'},
+            {scale: 1.1},
+            {scale: 1},
+            {boxShadow: '0 0 80px 20px rgba(255,0,0,0.5)'},
+            {boxShadow: '0 0 0 0'},
+        ], {
+            duration: 1000,
+            iterations: 1,
+            easing: 'ease-in-out'
+        });
+    }
 
     btn.addEventListener("click", function () {
         if (btn.textContent === "OFF") {
             btn.textContent = "ON";
             btn.classList.remove('redBg');
-            localStorage.setItem("violence", "ON"); //storing user preference
+            // localStorage.setItem("violence", "ON"); //storing user preference
             changeToViolence();
         } else {
             btn.textContent = "OFF";
             btn.classList.add('redBg');
-            localStorage.setItem("violence", "OFF"); //storing user preference
+            // localStorage.setItem("violence", "OFF"); //storing user preference
             changeToSafe();
         }
     })
