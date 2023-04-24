@@ -151,13 +151,9 @@ nav ul .red {
     align-items: center;
     border-bottom: 1px solid white;
   }
-  nav ul #serviceNav svg {
-    margin: 0.5rem;
-  }
 }
 nav ul #hamburger {
   background-color: rgba(255, 0, 0, 0.1);
-  border-radius: 10%;
   width: 4rem;
   cursor: pointer;
   transition: 0.3s ease-in-out background-color;
@@ -168,7 +164,8 @@ nav ul #hamburger {
   }
 }
 nav ul #hamburger:hover {
-  background-color: rgba(255, 0, 0, 0.2);
+  border-radius: 10%;
+  background-color: rgba(255, 0, 0, 0.5);
 }
 nav ul #logo {
   width: 4rem;
@@ -491,6 +488,12 @@ header figure {
 #references img {
   height: 12rem;
 }
+@media (max-width: 992px) {
+  #references img {
+    height: auto;
+    width: 50%;
+  }
+}
 #references h3 {
   font-size: 1.2rem;
   font-weight: 700;
@@ -503,6 +506,11 @@ header figure {
   font-weight: 300;
   text-align: left;
 }
+@media (max-width: 992px) {
+  #references q {
+    font-size: 1rem;
+  }
+}
 #references > div {
   display: flex;
   justify-content: center;
@@ -510,6 +518,12 @@ header figure {
   align-items: center;
   gap: 2rem;
   padding: 2rem;
+}
+@media (max-width: 992px) {
+  #references > div {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
 }
 #references > div > div {
   display: flex;
@@ -520,12 +534,19 @@ header figure {
   padding: 0 4rem;
   text-align: center;
 }
+@media (max-width: 992px) {
+  #references > div > div {
+    align-items: center;
+    gap: 0;
+  }
+}
 
 #contact {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 #contact p {
   text-align: center;
@@ -533,6 +554,11 @@ header figure {
   margin: auto;
   padding: 4rem;
   transition: all 0.2s ease-in-out;
+}
+@media (max-width: 992px) {
+  #contact p {
+    width: auto;
+  }
 }
 #contact .wrapper {
   position: relative;
