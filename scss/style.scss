@@ -651,7 +651,7 @@ header {
     img {
       width: 55%;
       border: 10px rgba(255, 0, 0, 0.45) solid;
-      transform: rotate(2deg);
+      transform: translate(-50%, 0) rotate(2deg);
     }
   }
 }
